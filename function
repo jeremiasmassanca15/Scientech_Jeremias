@@ -1,0 +1,91 @@
+<?php
+if(isset($_POST['data'])){
+  echo sensor1_d($_POST['data']); exit();
+}
+function sensor1_d($adc) {
+  include ("db.php");
+  $all_sense=$con->prepare("select * from spdatalogger order by datetime  DESC LIMIT 1");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+
+  while ($row=$all_sense->fetch()):
+    if($adc == "hum"){
+      $adcval = $row['ADC3'];
+    }else if($adc == "hum1"){
+      $adcval = $row['ADC3'];
+    }else if($adc == "hum1"){
+      $adcval = $row['ADC3'];
+    }else if($adc == "temp1"){
+      $adcval = $row['ADC1'];
+    }else if($adc == "light1"){
+      $adcval = $row['ADC2'];
+    }else if($adc == "light"){
+      $adcval = $row['ADC2'];
+    }else if($adc == "temp"){
+      $adcval = $row['ADC1'];
+    }
+    return "<div style='margin-bottom:3px;padding-right:10px;display:flex; flex-wrap:wrap; font-size:24px'>".$adcval."</div>";
+  endwhile;
+}
+
+
+if(isset($_POST['data1'])){
+  echo sensor2_d(); exit();
+}
+function sensor2_d() {
+  include ("db.php");
+  $all_sense=$con->prepare("select * from spdatalogger order by datetime  DESC LIMIT 1");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+  while ($row=$all_sense->fetch()):
+    return "<div style='margin-bottom:3px;padding-right:10px;display:flex; flex-wrap:wrap; font-size:24px'>".$row['ADC4']."</div>";
+  endwhile;
+}
+
+function sensor1_data() {
+  include ("inc/db.php");
+  $all_sense=$con->prepare("select * from spdatalogger order by  adc3='$adc3' desc limit 15");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+  while ($row=$all_sense->fetch()):
+    echo"<a style='margin-bottom:3px;padding-right:10px; font-size:18px'>".$row['ADC3']."Degree</a>";
+  endwhile;
+}
+
+function sensor2() {
+  include ("inc/db.php");
+  $all_sense=$con->prepare("select * from spdatalogger ORDER BY  adc1='$adc1' DESC LIMIT 1");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+  while ($row=$all_sense->fetch()):
+    echo"<div style='margin-bottom:3px;padding-right:10px;display:flex; flex-wrap:wrap; font-size:24px'>".$row['ADC3']."</div>";
+  endwhile;
+}
+
+function sensor3() {
+  include ("inc/db.php");
+  $all_sense=$con->prepare("select * from spdatalogger ORDER BY  adc2='$adc2' DESC LIMIT 1");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+  while ($row=$all_sense->fetch()):
+    echo"<div style='margin-bottom:3px;padding-right:10px;display:flex; flex-wrap:wrap; font-size:24px'>".$row['ADC3']."</div>";
+  endwhile;
+}
+
+function sensor4() {
+  include ("inc/db.php");
+  $all_sense=$con->prepare("select * from spdatalogger ORDER BY  adc4='$adc4' DESC LIMIT 1");
+  $all_sense->setFetchMode (PDO:: FETCH_ASSOC);
+  $all_sense->execute();
+
+  while ($row=$all_sense->fetch()):
+    echo"<div style='margin-bottom:3px;padding-right:10px;display:flex; flex-wrap:wrap; font-size:24px'>".$row['ADC3']."</div>";
+  endwhile;
+}
+
+?>
