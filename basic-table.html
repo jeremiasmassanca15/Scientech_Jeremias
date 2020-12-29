@@ -10,17 +10,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
     <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../style/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <!-- animation CSS -->
-    <link href="../style/css/animate.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../style/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
-    <link href="../style/css/colors/default.css" id="theme" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,15 +28,20 @@
 </head>
 
 <body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
     <!-- Wrapper -->
     <!-- ============================================================== -->
     <div id="wrapper">
 
-      <?php
-        include ("inc/header.php");
-        include ("inc/leftsidebar.php");
-        include ("inc/rightsidebar.php");
-      ?>
+
 
     </div>
     <!-- /#wrapper -->
